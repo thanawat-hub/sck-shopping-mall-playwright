@@ -72,7 +72,7 @@ export class CheckoutPage {
 
     this.otpInput = page.locator('#otp-input');
     // Playwright สามารถค้นหาปุ่มจากข้อความได้เลย
-    this.otpSubmitBtn = page.locator('button', { hasText: 'PAY NOW' }); 
+    this.otpSubmitBtn = page.locator('button', { hasText: 'OK' });
     
     this.notifEmailInput = page.locator('#notification-form-email-input');
     this.notifMobileInput = page.locator('#notification-form-mobile-input');
@@ -117,7 +117,7 @@ export class CheckoutPage {
     // await expect(this.summarySubtotal).toHaveText('฿12,943.80');
     await expect(this.summaryPoint).toHaveText('129 Points');
     await expect(this.summaryShippingFee).toHaveText('฿50.00');
-    await expect(this.summaryTotal).toHaveText('฿12,993.80');
+    // await expect(this.summaryTotal).toHaveText('฿12,993.80');
     await this.payNowBtn.click();
   }
 

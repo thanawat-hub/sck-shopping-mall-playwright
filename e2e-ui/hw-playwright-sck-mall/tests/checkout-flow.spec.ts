@@ -79,9 +79,9 @@ test.describe('SCK-Shopping Mall Checkout Flow', () => {
       await checkoutPage.submitOTP(otpCode);
     });
 
-    // await test.step('กรอกอีเมลเบอร์โทรเพื่อรับข่าวสารโปรโมชั่น', async () => {
-    //   await checkoutPage.subscribeNotification('thanawat123', '0812345678');
-    // });
+    await test.step('กรอกอีเมลเบอร์โทรเพื่อรับข่าวสารโปรโมชั่น', async () => {
+      await checkoutPage.subscribeNotification('thanawat123', '0812345678');
+    });
 
   });
 });
