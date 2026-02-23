@@ -1,0 +1,18 @@
+{
+  "name": "hw-playwright-sck-mall",
+  "version": "1.0.0",
+  "description": "แปลงจาก robot framework เป็น playwright\r โดยมีโครงสร้างคือ\r และจะต้อง\r playwright-sck-mall/\r │\r ├── pages/                  # เก็บ Page Object Model (POM) แบ่งตามหน้าจอ\r │   ├── HomePage.ts         # จัดการหน้าแรกและการค้นหา\r │   ├── ProductPage.ts      # จัดการหน้ารายละเอียดสินค้า\r │   ├── CartPage.ts         # จัดการหน้าตะกร้าสินค้า\r │   └── CheckoutPage.ts     # จัดการหน้าชำระเงินและ OTP\r │\r ├── tests/                  # เก็บไฟล์ Test Scenarios (เทียบเท่า *** Test Cases ***)\r │   └── checkout-flow.spec.ts \r │\r ├── utils/                  # เก็บฟังก์ชันช่วยเหลือต่างๆ (ถ้ามี)\r │   └── helpers.ts          \r │\r ├── data/                   # เก็บ Test Data แยกออกมาจากโค้ด (เช่น ข้อมูลบัตร, ชื่อผู้ซื้อ)\r │   └── user-data.json      \r │\r ├── playwright.config.ts    # ไฟล์ตั้งค่าหลัก (เทียบเท่า *** Settings *** และ Variables บางส่วน)\r ├── package.json\r └── tsconfig.json",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.58.2",
+    "@types/node": "^25.3.0"
+  }
+}
