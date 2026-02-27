@@ -7,7 +7,6 @@ on:
 
 jobs:
   mirror_to_github:
-    # เพิ่มบรรทัดนี้: ป้องกันไม่ให้โค้ดไปรันซ้ำแล้วพังที่ฝั่ง Personal
     if: github.repository == 'thanawat-wlb/sck-shopping-mall-playwright'
     runs-on: ubuntu-latest
     
@@ -16,17 +15,18 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0 
+          # 1. เพิ่มคำสั่งนี้ เพื่อห้ามไม่ให้ Git จำ Token ของบอทระบบ
+          persist-credentials: false 
 
       - name: Push to mirror repository
         env:
+          # 2. แก้ชื่อ Secret ให้ตรงกับภาพที่คุณตั้งไว้ใน Settings
           DEST_GITHUB_TOKEN: ${{ secrets.DESTINATION_PERSONAL_GITHUB_TOKEN }}
           DEST_GITHUB_USERNAME: "thanawat-hub" 
-          # แก้ไข 1: เปลี่ยนชื่อ Repo ให้ตรงกับปลายทาง
           DEST_REPO: "sck-shopping-mall-playwright" 
         run: |
           echo "Start mirroring branch $GITHUB_REF_NAME to GitHub..."
           
-          # อีเมลสำหรับตัว Runner ของ GitHub Action (ไม่ต้องแก้อะไรตรงนี้)
           git config --global user.email "bunysiththiphic@gmail.com"
           git config --global user.name "thanawat-hub"
           
